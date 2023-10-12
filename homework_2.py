@@ -7,11 +7,12 @@ import csv
 
 
 
-def aggregation_search(i_group_by_row: int, i_result_row: int) -> dict:
+def aggregation_search(data:Iterable, i_group_by_row: int, i_result_row: int) -> dict:
     """
     Создает словарь, который группирует таблицу по одному столбцу,
     помещая в ключ столбец, по которому происходит группировка,
     а в значения  - другой выбранный столбец
+    :param data: список с изначальными данными
     :param i_group_by_row: номер столбца из таблицы (считая с 0), по которому необходимо сгруппировать
     :param i_result_row: номер столбца из таблицы (считая с 0), который помещается в значения
 
@@ -36,15 +37,15 @@ def aggregation_search(i_group_by_row: int, i_result_row: int) -> dict:
 
 
 
-def make_report() -> Iterable:
+def make_report(data:Iterable) -> Iterable:
     """
     Создает сводный отчёт по департаментам: название, численность, "вилка" зарплат в виде мин – макс, среднюю зарплату
-
+    :param data: список с изначальными данными
     :return: список с отчетом
 
     """
-    dict_population = aggregation_search(1,0)
-    dict_salary = aggregation_search(1,5)
+    dict_population = aggregation_search(data,1,0)
+    dict_salary = aggregation_search(data,1,5)
     list_report = []
     for key in dict_salary.keys():
         list_report.append(f'Департамент:{key}')
@@ -81,19 +82,19 @@ def start_menu() -> None:
     print('3. Сохранить сводный отчёт из предыдущего пункта в виде csv-файла. При этом необязательно вызывать сначала команду из п.2')
     command = int(input())
     if command == 1:
-        dict_department = aggregation_search(1,2)
+        dict_department = aggregation_search(data,1,2)
         for key in dict_department.keys():
             print(f'Департамент "{key}" включает в себя такие команды:')
             for i in range(len(dict_department.get(key))):
                 print(f'{i+1}){dict_department.get(key)[i]}')
     elif command == 2:
-        report = make_report()
+        report = make_report(data)
         for s in report:
             print(s)
     elif command == 3:
         print('Введите название файла')
         directory = input()
-        report = make_report()
+        report = make_report(data)
         with open(directory+'.csv', "w", newline='') as file:
             writer = csv.writer(file)
             writer.writerow(report)
