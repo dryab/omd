@@ -53,19 +53,6 @@ def encode(message: str) -> str:
     return ' '.join(encoded_signs)
 
 
-def decode(morse_message: str) -> str:
-    """
-    Декодирует строку из азбуки Морзе в английский
-
-
-    """
-    decoded_letters = [
-        MORSE_TO_LETTER[letter] for letter in morse_message.split()
-    ]
-
-    return ''.join(decoded_letters)
-
-
 if __name__ == '__main__':
     import doctest
 
