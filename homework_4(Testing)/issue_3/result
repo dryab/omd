@@ -1,0 +1,9 @@
+$ python3 -m unittest -v test_issue_3.py 
+test_cities (test_issue_3.TestOneHotEncoder) ... ok
+test_wrong_type (test_issue_3.TestOneHotEncoder) ... ok
+test_python_not_eq (test_issue_3.TestOneHotEncoder) ... ok
+test_python_eq (test_issue_3.TestOneHotEncoder) ... ok
+----------------------------------------------------------------------
+Ran 4 tests in 0.002s
+
+OK
