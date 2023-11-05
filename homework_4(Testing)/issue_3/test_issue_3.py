@@ -38,7 +38,7 @@ class TestOneHotEncoder(unittest.TestCase):
         )
 
     def test_wrong_type(self):
-        self.assertRaises(TypeError, fit_transform(1))
+        self.assertRaises(TypeError, fit_transform,1)
 
     def test_python_not_eq(self):
         self.assertEqual(fit_transform(['P','Y','T','H','O','N']), [('P', [0, 0, 0, 0, 0, 1]),
