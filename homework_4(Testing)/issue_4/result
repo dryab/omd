@@ -1,0 +1,14 @@
+pytest -v
+============================= test session starts ==============================
+platform win32 -- Python 3.11.5, pytest-7.4.3, pluggy-1.0.0 -- C:\Users\User\anaconda3\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\User\Untitled Folder
+plugins: anyio-3.5.0
+collected 4 items                                                              
+
+test_issue_4.py::test_cities PASSED                                       [ 25%]
+test_issue_4.py::test_python_1 PASSED                                     [ 50%]
+test_issue_4.py::test_python_2 PASSED                                     [ 75%]
+test_issue_4.py::test_wrong_type PASSED                                   [100%]
+
+============================== 4 passed in 0.05s ===============================
