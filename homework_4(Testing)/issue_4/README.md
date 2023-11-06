@@ -1,4 +1,4 @@
-Issue-4
+Issue_4
 
 В этой папку протестирована функция fit_transform() с помощью pytest.
 
